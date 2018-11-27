@@ -1,0 +1,58 @@
+@import "colors";
+
+.restaurants-list-view {
+  height: calc(100vh - 432px);
+  width: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+
+  .restaurants-list {
+    min-height: 100%  ;
+    overflow-y: scroll;
+    background: #EEEEEE;
+    width: 400px;
+  }
+
+  .map {
+    height: 100%;
+    background: green;
+    width: 100%;
+  }
+}
+
+.restaurant-box {
+  img.ui.image {
+    display: inline-block;
+  }
+
+
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #FFF;
+
+  .details {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 10px;
+
+    .name {
+      font-size: 16px;
+    }
+  }
+}
+
+.ui.active.modal.add-restaurant-modal {
+  .ui.button.red {
+    background: $primary;
+  }
+
+  .field {
+    margin: 20px;
+  }
+}
