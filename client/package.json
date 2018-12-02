@@ -9,6 +9,8 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-google-maps": "^9.4.5",
+    "react-places-autocomplete": "^7.2.0",
+    "react-rating": "^1.5.0",
     "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
@@ -25,7 +27,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "globals": {
+      "google": true
+    }
   },
   "browserslist": [
     ">0.2%",

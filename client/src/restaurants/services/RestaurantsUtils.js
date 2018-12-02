@@ -76,4 +76,10 @@ export class RestaurantsUtils {
             }
         ];
     }
+
+    static getDeliveryTimeText(max_delivery_time) {
+        const deliveryTimeOptions = RestaurantsUtils.getSpeedDefaultOptions();
+        const deliveryTimeObj = deliveryTimeOptions.find(option => option.value === max_delivery_time);
+        return deliveryTimeObj ? deliveryTimeObj.text : "Delivery time is " + max_delivery_time + " minutes.";
+    }
 }

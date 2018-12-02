@@ -5,7 +5,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.with_reviews;
+    render json: @restaurants
   end
 
   # GET /restaurants/1
@@ -70,6 +71,7 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :cuisine, :rating, :tenbis, :address, :max_delivery_time)
+      params.require(:restaurant).permit(:name, :cuisine, :tenbis, :address, :max_delivery_time, :rating)
     end
+
 end

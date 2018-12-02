@@ -1,14 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getRestaurantsList} from "./restaurants/store/reducer";
-import {getRestaurants} from "./restaurants/store/restaurants.actions";
+import {getRestaurantsList} from "./store/restaurantsMain.reducer";
+import {getRestaurants} from "./store/restaurants.actions";
 import {Segment} from "semantic-ui-react";
 
-import {Header} from "./restaurants/Header";
-import {Filters} from "./restaurants/Filters";
-import {Map} from "./restaurants/Map";
-import {RestaurantsList} from "./restaurants/RestaurantsList";
+import {Header} from "./Header";
+import {Filters} from "./Filters";
+import {Map} from "./Map";
+import {RestaurantsList} from "./RestaurantsList";
+import {SelectedRestaurant} from "./components/SelectedRestaurant";
+import {ReviewModal} from "./ReviewModal";
 
 class MainScreenComponent extends React.Component {
     componentDidMount(){
@@ -22,8 +24,10 @@ class MainScreenComponent extends React.Component {
                 <Filters />
                 <div className="restaurants-list-view">
                     <RestaurantsList />
+                    <SelectedRestaurant />
                     <Map />
                 </div>
+                <ReviewModal />
             </Segment>
         );
     }

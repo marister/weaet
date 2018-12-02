@@ -6,13 +6,14 @@ import {RestaurantsUtils as RestaurantUtils} from "./services/RestaurantsUtils";
 import {saveRestaurant} from "./store/restaurants.actions";
 import {isLoading, isModalOpened} from "./store/createResaurant.reducer";
 import {openCreateRestaurantModal} from "./store/createRestaurant.actions";
+import {LocationSearchInput} from "./components/PlacesAutocomplete";
 
 class AddRestaurantComponent extends React.Component {
     state = {
         name: '',
         address: '',
         cuisine: null,
-        speed: null,
+        max_delivery_time: null,
         tenbis: false
     };
 
@@ -32,6 +33,12 @@ class AddRestaurantComponent extends React.Component {
         });
     };
 
+    updateAddress = address => {
+        this.setState({
+            address: address
+        })
+    };
+
     render() {
         return (
             <div>
@@ -45,7 +52,7 @@ class AddRestaurantComponent extends React.Component {
                     </Form.Field>
                     <Form.Field>
                         <label>Address</label>
-                        <Input placeholder="Address..." fluid onChange={(e, data) => { this.updateField('address', data) }}/>
+                        <LocationSearchInput onChange={this.updateAddress}/>
                     </Form.Field>
                     <Form.Field>
                         <label>Cuisine Type</label>
@@ -56,12 +63,12 @@ class AddRestaurantComponent extends React.Component {
                                   onChange={(e, data) => { this.updateField('cuisine', data) }}/>
                     </Form.Field>
                     <Form.Field>
-                        <label>Speed</label>
+                        <label>Delivery Time</label>
                         <Dropdown placeholder="Speed..."
                                   fluid
                                   selection
                                   options={RestaurantUtils.getSpeedDefaultOptions()}
-                                  onChange={(e, data) => { this.updateField('speed', data) }}/>
+                                  onChange={(e, data) => { this.updateField('max_delivery_time', data) }}/>
                     </Form.Field>
                     <Form.Field>
                         <Checkbox label="Accepts Ten Bis?" onChange={(e, data) => { this.updateCheckbox('tenbis', data) }}/>
